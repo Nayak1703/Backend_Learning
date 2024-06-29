@@ -1,0 +1,29 @@
+===========>    Intro to HTTP Server    <============
+
+-   We can make backend server using node.js
+
+-   To make backend-server we required 
+        host: address where our server is accessible,   example: ip-address, localhost  
+        port: the port (gateway) of the machine where the server application is running, there are more than 
+              65000 ports present in the machine. we can access those port from outside the server 
+    and backend-server should take a request and give a response based on request.
+
+-   We can create backend-server by using [ http ] module it take a callback function and inside callback we give 
+    host and port number to access the backend-server
+
+
+
+===========>    What is HTTP module and How to write HTTP Server in node.js   <============
+
+-   HTTP module (code file) is provided by node.js, which we will use in our project.
+
+-   Go inside the project folder.
+-   npm init  ->  To initialize the npm inside the project folder.
+-   npm i <package-name>  ->  Install package you want to use in your project
+        * In this case i am installing "nodemon" (devDependencies) to make backup server live  -> [ npm i nodemon -D ]
+-   Make a index.js file to write backend-code
+
+-   const http = require("http");  ->   We are requiring/Importing "http" in out project to access it.
+-   const server = http.createServer();   ->   to create the server using http module.
+
+-   see the index.js code

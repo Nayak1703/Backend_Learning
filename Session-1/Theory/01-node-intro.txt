@@ -1,0 +1,143 @@
+===========>    Node.js - what, why, who?   <==========
+
+1) Who made the Node.js and why Node.js is made?
+=>  Node.js was created by Ryan Dahl, a software engineer, in 2009. Initially, Dahl developed Node.js 
+    to address the limitations of traditional web servers, which often struggled to handle a large number 
+    of simultaneous requests.
+
+
+2) What is Node.js?
+=>  
+    - JavaScript run inside browser because it have JS-engine in it, every browser have its own JS-Engine.
+        google's chorme has V8-engine.
+        fireFox have spider-monkey.
+        Safari have apple's JS engine
+
+    - Here Node.js developer used most popular v8-engine beacuse it is open-source JavaScript engine.
+    
+    - Ryan Dahl took V8-engine and embed with c++ to make node.js which will run on server-side, because of c++
+      we can use JS to talk with native machine like (file-handling). 
+
+    - Before Node.js, JavaScript only run on browsers (client-side), which take lots of process
+      of user/client machine (pc, laptop) that impact the performance of the web-app and we will also face 
+      difficulty to scale the web-app.
+
+    - So Node.js is built to run Js outside the browser, on server-side.
+
+    - Before Node.js, we use different language for Frontend (javascript, react, etc..) and Backend (php, laravel, etc..), 
+      but now due to Node.js we can use JavaScript to write both Frontend & Backend.
+
+    - Node.js is Asynchronous_Non-Blocking_I/O_Model which means it can handle large number of simultaneous 
+      request effectiently, that make it well-suited for real-time web-app like chat application
+    
+        Example:
+          - Before Node.js:
+              * Server-side technology like php, Ruby on Rails, java, etc... used Synchronous_Blocking_I/O_Model
+                which means each request will handle sequentially (execute each request at a time)
+              * suppose a real-time web-chat-app where there are lots of users, users are sending lots of message
+                simultaneous, since this Server-side technology is synchronous in nature, each messaging request will 
+                get handle by server one-by-one by 
+                [understanding-the-request => wait-till-it-give-respond-based-on-the-request => then-take-next-request]
+              * The server will get lot of request which leads to delays or even crashes i.e performance-bottlenecks
+          
+          - After Node.js:
+              * when a request come, node.js's event-loop efficiently manages asynchronous I/O operations by 
+                allowing multiple chat messages to be sent and received simultaneously without blocking other requests.
+                [ 
+                  1. each request goes to event-loop
+                  2. event-loop send request lets named it (msg-1) to backend to execute & look for another request
+                  3. if it gets another request named (msg-2) it will do same, send (msg-2) to backend & look 
+                     for another request and so on...
+                  4. from all the requests (msg-1, msg-2, msg-3, etc...) event-loop in handling in backend who ever 
+                     execute first, event-loop will return the response of that request.
+                     without blocking any other request's execution 
+                ]
+              * By this Node.js efficently manages lots of request thats come simultaneously, and we can build
+                high-scalable, high-performance and efficent real-time web-apps
+
+    - Since Js run on server-side outside the browser, so it dont have access of methods provided by browser
+      like window-object, getElement, querySelector, etc... (functions that are accessing DOM or Ui).
+      lots of methods were removed from V8-engine which is not required by server-side JS and add lots of methods 
+      are added in V8-engine which is required by server-side JS like (crypto, encryption, etc...).
+
+    - There are lots of community support for node.js and there are lots of open-source library provided by the
+      npm (node-package-manager) we can use those library with the help of the node.js in our web-app.
+
+
+
+===========>    What is NPM, package.json, package-lock.json and scripts  <==========
+
+- To run npm in our project we need to install Node.js in our system, npm get install by-default when Node.js is installed 
+
+- npm (node package manager),
+    package: it is pre-written program which is written by some-third-party-programmer, that do some specify task.
+    manager: there are total more than 2 million package which is maintain by npm (https://www.npmjs.com/), 
+             to manage those package like installing, uninstalling, updateing, publishing, etc... we use npm
+
+- We have to write simple npm's commands in cli (command-line) to manage the package
+  example: npm init, npm install <package-name>, npm update <package-name>, etc...
+
+- When package is installed using npm, npm also install all the dependency which are required to run that package.
+
+- npm init: it means we want to use node.js inside our project, when we initialize the npm in our project, it 
+  automatically create "package.json" file and in that file we have all the meta data related to that project
+  in {object} format and inside we have many key-value pair.
+  and all the packages get installed inside folder "node_modules"
+
+- from many keys we have one key named "dependencies" and its value will be a object where we can see all the 
+  packages and its version in key-value pair, which we are using in our project and if we add new package in our project, 
+  it will get add inside the dependencies's object.
+
+- package-lock.json file have all the exact details like (extact version of package and lot more) of all the package 
+  installed in our project and it have all the details about the peer-dependencies (packages which depend on other 
+  package) of the package.
+
+- In "package.json" we also have one key names as "scripts" and it value is a {object}
+  inside the object we can give custome commands to run
+  example:
+    "scripts": {
+      "start": "node app.js",
+      "test": "mocha"
+    }
+    npm run start -> execute the "node app.js" & npm run test -> execute "mocha"
+
+- you can find all the npm package and its info on website https://www.npmjs.com/
+
+
+
+===========>    What is NVM?  <==========
+
+- With the help of NVM we an install different version of Node.js and we can switch between those version
+  using command-line.
+
+- We have NVM support in Mac/Linux, but we dont have NVM support in windows. we can download 3 party tool
+  to have experience of NVM in our windows.
+
+
+
+===========>    What is difference between Production-dependencies & Development-dependencies?   <==========
+
+- Production-dependencies: All the Production-dependencies is listed in package.json file under the key-name 
+  "dependencies", these all package are used in our project,
+  example: express, http, etc...
+
+- Development-dependencies: All the Development-dependencies is listed in package.json file under the key-name 
+  "devDependencies" these all package are installed in our local system and it is used to support our project 
+  during developing the project.
+
+    * We are installing a devDependencies called "nodemon", which helps to run backend continuously Live just like 
+      live-server(go-live) do in vs-code, if we edit and save the code of backend it will automatically restart the 
+      backend and all our changes will reflect on web-app.
+    
+    * "nodemon" or any other devDependencies like (jest) is used in our local-system to make developer work easy 
+      while building the backend, devDependencies is not used in deployed-production because we are not 
+      writing/testing code which is already been deployed. 
+
+    * Because of "nodemon" we dont have have to re-run the backend server manually (node index.js / npm run start) after every changes.
+    
+    * "nodemon" can be install using [npm i nodemon -D] / [npm i nodemon --save-dev]
+
+
+
+           
+

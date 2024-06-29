@@ -1,0 +1,130 @@
+<mxfile host="65bd71144e">
+    <diagram id="COLcJ01lrlfEJJQixft8" name="Page-1">
+        <mxGraphModel dx="1651" dy="480" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="24" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 14px; line-height: 19px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;{&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #9cdcfe;&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;: &lt;/span&gt;&lt;span style=&quot;color: #ce9178;&quot;&gt;&quot;node-learning&quot;&lt;/span&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #9cdcfe;&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;: &lt;/span&gt;&lt;span style=&quot;color: #ce9178;&quot;&gt;&quot;1.0.0&quot;&lt;/span&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #9cdcfe;&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;: &lt;/span&gt;&lt;span style=&quot;color: #ce9178;&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #9cdcfe;&quot;&gt;&quot;main&quot;&lt;/span&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;: &lt;/span&gt;&lt;span style=&quot;color: #ce9178;&quot;&gt;&quot;index.js&quot;&lt;/span&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #9cdcfe;&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;: {&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;&amp;nbsp; &amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #9cdcfe;&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;: &lt;/span&gt;&lt;span style=&quot;color: #ce9178;&quot;&gt;&quot;echo &lt;/span&gt;&lt;span style=&quot;color: #d7ba7d;&quot;&gt;\&quot;&lt;/span&gt;&lt;span style=&quot;color: #ce9178;&quot;&gt;Error: no test specified&lt;/span&gt;&lt;span style=&quot;color: #d7ba7d;&quot;&gt;\&quot;&lt;/span&gt;&lt;span style=&quot;color: #ce9178;&quot;&gt; &amp;amp;&amp;amp; exit 1&quot;&lt;/span&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;&amp;nbsp; &amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #9cdcfe;&quot;&gt;&quot;start&quot;&lt;/span&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;: &lt;/span&gt;&lt;span style=&quot;color: #ce9178;&quot;&gt;&quot;node index.js&quot;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;&amp;nbsp; },&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #9cdcfe;&quot;&gt;&quot;keywords&quot;&lt;/span&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;: [],&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #9cdcfe;&quot;&gt;&quot;author&quot;&lt;/span&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;: &lt;/span&gt;&lt;span style=&quot;color: #ce9178;&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #9cdcfe;&quot;&gt;&quot;license&quot;&lt;/span&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;: &lt;/span&gt;&lt;span style=&quot;color: #ce9178;&quot;&gt;&quot;ISC&quot;&lt;/span&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;,&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #9cdcfe;&quot;&gt;&quot;dependencies&quot;&lt;/span&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;: {&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;&amp;nbsp; &amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #9cdcfe;&quot;&gt;&quot;express&quot;&lt;/span&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;: &lt;/span&gt;&lt;span style=&quot;color: #ce9178;&quot;&gt;&quot;^4.19.2&quot;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;&amp;nbsp; }&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #cccccc;&quot;&gt;}&lt;/span&gt;&lt;/div&gt;&lt;br&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=17;fontFamily=Comic Sans MS;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="70" width="480" height="350" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Comic Sans MS;fontSize=17;" parent="1" edge="1">
+                    <mxGeometry width="100" relative="1" as="geometry">
+                        <mxPoint x="250" y="105" as="sourcePoint"/>
+                        <mxPoint x="380" y="50" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="320" y="90"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="26" value="Package.json file&lt;br&gt;&lt;font face=&quot;Helvetica&quot;&gt;this file created by npm init command&lt;/font&gt;" style="whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;fontSize=17;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="109" y="410" width="320" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;this is the name of the Application / project / package,&lt;br&gt;if not given it will take its folder-name as project-name&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;fontFamily=Helvetica;spacing=-1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="280" y="1" width="380" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=14;fontColor=#000000;" parent="1" edge="1">
+                    <mxGeometry width="100" relative="1" as="geometry">
+                        <mxPoint x="210" y="125" as="sourcePoint"/>
+                        <mxPoint x="520" y="80" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="390" y="110"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="29" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;This is version of project, given by default 1.0.0&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;fontFamily=Helvetica;spacing=-1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="527" y="69" width="330" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=14;fontColor=#000000;" parent="1" edge="1">
+                    <mxGeometry width="100" relative="1" as="geometry">
+                        <mxPoint x="200" y="142" as="sourcePoint"/>
+                        <mxPoint x="580" y="127" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="380" y="127"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="31" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;If you want to give any brife-discription to your project&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;fontFamily=Helvetica;spacing=-1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="588" y="115" width="380" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=14;fontColor=#000000;" parent="1" edge="1">
+                    <mxGeometry width="100" relative="1" as="geometry">
+                        <mxPoint x="210" y="165" as="sourcePoint"/>
+                        <mxPoint x="590" y="165" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="33" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;It is the entry point to our Application / project i.e index.js&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;fontFamily=Helvetica;spacing=-1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="595" y="154" width="400" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=14;fontColor=#000000;" parent="1" edge="1">
+                    <mxGeometry width="100" relative="1" as="geometry">
+                        <mxPoint x="280" y="220" as="sourcePoint"/>
+                        <mxPoint x="590" y="220" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="330" y="230"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="36" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;We can give our custom, command inside scripts.&lt;br&gt;we can used those script by using npm run test, npm run start.&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;fontFamily=Helvetica;spacing=-1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="595" y="200" width="440" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" edge="1">
+                    <mxGeometry width="100" relative="1" as="geometry">
+                        <mxPoint x="180" y="259" as="sourcePoint"/>
+                        <mxPoint x="590" y="270" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="38" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;It is used to add keywords for our website, it helps to increase our&lt;br&gt;website reach in browser, it required in SEO&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;fontFamily=Helvetica;spacing=-1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="598" y="260" width="460" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" edge="1">
+                    <mxGeometry width="100" relative="1" as="geometry">
+                        <mxPoint x="160" y="274.5" as="sourcePoint"/>
+                        <mxPoint x="540" y="320" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="390" y="290"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="40" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;Add the Names of Owner of the project&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;fontFamily=Helvetica;spacing=-1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="546" y="321" width="280" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" edge="1">
+                    <mxGeometry width="100" relative="1" as="geometry">
+                        <mxPoint x="190.0000000000001" y="297.5" as="sourcePoint"/>
+                        <mxPoint x="560" y="370" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="300" y="310"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="42" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;It is software license which is given by ISC&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;fontFamily=Helvetica;spacing=-1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="567" y="362" width="300" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" edge="1">
+                    <mxGeometry width="100" relative="1" as="geometry">
+                        <mxPoint x="200" y="344" as="sourcePoint"/>
+                        <mxPoint x="560" y="414" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="44" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;Here we will have all the package name &lt;br&gt;and its version which we &lt;br&gt;have installed in our project&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;fontFamily=Helvetica;spacing=-1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="490" y="425" width="280" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" edge="1">
+                    <mxGeometry width="100" relative="1" as="geometry">
+                        <mxPoint x="150" y="341" as="sourcePoint"/>
+                        <mxPoint x="60" y="480" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="70" y="450"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="47" value="&lt;li&gt;The version is written in &quot;major-version.minor-version.patch&quot; format.&lt;/li&gt;&lt;li&gt;The &lt;code&gt;^&lt;/code&gt; sign indicates using any version compatible with the specified major version, starting from the specified minor version.&lt;/li&gt;&lt;li&gt;Example: &lt;code&gt;^4.19.2&lt;/code&gt; means any version of Express &lt;code&gt;&amp;gt;=4.19.2&lt;/code&gt; but &lt;code&gt;&amp;lt;5.0.0&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;If Express releases version &lt;code&gt;4.22.2&lt;/code&gt; and &lt;code&gt;5.02.2&lt;/code&gt; after two months and you run &lt;code&gt;npm install&lt;/code&gt;, it will use &lt;code&gt;4.22.2&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;Express will not use version &lt;code&gt;5.02.2&lt;/code&gt; because it is a different major version.&lt;/li&gt;&lt;li&gt;Without the &lt;code&gt;^&lt;/code&gt;, Express will use the exact version specified in the dependencies.&lt;/li&gt;&lt;li&gt;Example: Without &lt;code&gt;^&lt;/code&gt;, specifying &lt;code&gt;4.19.2&lt;/code&gt; means only version &lt;code&gt;4.19.2&lt;/code&gt; will get installed &amp;amp; it will not installed any other minor-version.&lt;/li&gt;&lt;li&gt;&lt;br&gt;&lt;/li&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;fontFamily=Helvetica;spacing=-1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;fontStyle=0" parent="1" vertex="1">
+                    <mxGeometry x="-370" y="487" width="840" height="190" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
