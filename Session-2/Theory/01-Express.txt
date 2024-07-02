@@ -1,0 +1,44 @@
+What is Express.js?
+->  
+    1.  Express.js is a JavaScript Framework, but it is specifically designed to work within Node.js environment.
+        we can say that Express.js is web-application framework for Node.js
+
+    2.  It is lightWeight (size of express is 215kb), scalable (due to easy way to writing code), 
+        flexible (we can use functions as per our requirement), fast and robust (easy to build)
+
+    3.  It simplifies many tasks involved in building a server, such as routing, handling requests and responses, 
+        middleware management, and more.
+
+    4.  In node.js we have to write lots of code (complicated) to achive a task like Dynamic-routing, etc...
+        But with help of express.js we can achive same task with less simple code which increase readbility.
+        making development smoother.
+
+
+Key Features of Express.js?
+-> 
+    1.  Routing: Express.js provides a powerful routing mechanism to handle different HTTP requests (GET, POST, 
+        PUT, DELETE, etc.) for different URLs.
+    
+
+    2.  Middleware: Middleware functions are functions that have access to the request object (req), the response 
+        object (res), and with the help of these middleware-function we can modify the request and response objects, 
+        end the request-response cycle, and call the next middleware function.
+        
+        ( Basically we can access request & response object's properties & methods, send response, validate response, 
+          or maintain the flow of the Middleware-function with the help of Middleware function )
+        
+        Example of Middleware function & properties:
+            req.method, req.url, next(), req.query.token, res.status(403), etc...
+
+
+    3.  Template Engines: We also get many Template engine like Pug, EJS, and Handlebars to generate HTML dynamically.
+
+
+    4.  Static Files: It allows you to serve (send) static files like images, CSS, and JavaScript files.
+    
+    
+    5.  Error Handling: Express.js has a robust mechanism for handling errors.
+
+    
+    6.  Built-in Utilities: Express.js provides a number of utility functions to facilitate common tasks, 
+        like parsing request bodies and managing cookies.  

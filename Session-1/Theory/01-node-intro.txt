@@ -137,6 +137,9 @@
     
     * "nodemon" can be install using [npm i nodemon -D] / [npm i nodemon --save-dev]
 
+    * flag (-D) or --save-dev means we are telling npm to install nodemon to install as devDependencies 
+      if we dont write (-D) or --save-dev, package will get install normally as dependencies
+
 
 
            
