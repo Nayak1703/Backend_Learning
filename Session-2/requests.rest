@@ -1,0 +1,28 @@
+# We have install Rest Client extension, we can directly run
+# out HTTP request from here just like we do in POSTMAN
+# so now we dont need POSTMAN to check the responses from our 
+# backend-server
+
+###
+GET http://localhost:8082
+
+###
+GET http://localhost:8082/currencies
+
+###
+GET http://localhost:8082/currencies/inr
+
+###
+GET http://localhost:8082/currencies/USD
+
+###
+GET http://localhost:8082/currencies?min_value=1
+
+###
+GET http://localhost:8082/currencies?min_value=0.01
+
+###
+GET http://localhost:8082/currencies?min_value=yash
+
+###
+GET http://localhost:8082/currencies?min_valuae=123sa
