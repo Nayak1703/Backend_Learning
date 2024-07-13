@@ -12,7 +12,7 @@
 
 2. Now, suppose we want to add more routes (>=15 routes) under /currencies and /users, or add more request method to 
 same route (get,post,put,delete,path) to /currencies and /users.
-Or we want to remove all the routes of specific endpoint then we have to comment/delete all the routes manually. 
+Or we want to remove all the routes of specific endpoint then we have to add or comment/delete all the routes manually. 
 if we add the routes like we did above then it will look somethine like below:
 
         // currencies:
@@ -46,7 +46,7 @@ and it should be readble.
    Like we do in "controllers".
    Make sure you write all the routes of a endpoint in different file.
    eg: suppose i want to define the routes under /currencies, so i will make a file of name currencies.routes.js
-       and define all my routes which will come under /currencies inside the file currencies.routes.js
+       and inside it define all my routes which will come under /currencies,
        for routes under /users enpoint you should different file and define its routes.
 
    follow below steps (also see the routes-folder and its files):
@@ -55,7 +55,7 @@ and it should be readble.
     -   2.  make a js files as per your requirement, and named it as endpoint.routes.js.
             eg: suppose i want to add muitple routes on /users endpoint so my file name will be users.routes.js
 
-    -   3.  Now import Router() method from express, inside the all the routes-files within routes-folder
+    -   3.  Now import Router() method from express, inside all the routes-files within routes-folder
             const router = require("express").Router()
 
     -   4.  now use "router" insted of "app" to define the routes of that particular endpoint.
@@ -68,7 +68,7 @@ and it should be readble.
                     app.post("/:symbol", callBack-func)
                     ...
                 ]
-            But now we can use "instance" of Router() method which return object, which we have given to "router" 
+            But now we can use "instance" of Router() method which return object, which we have assigne to "router" 
             variable. in place of "router" variable we can write any name.
             so,
                 [
