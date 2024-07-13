@@ -1,0 +1,6 @@
+0. MongoDB Intro Module
+
+1. Express Routes
+2. Validating Routes
+3. Using Joi
+4. Storing Server Secreats with environment variables

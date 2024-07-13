@@ -4,11 +4,12 @@
 
 const currencies = require("../apiData.json");
 
-
+// function will execute on / path
 const homePage = (req, res) => {
   res.send("<h1>Currency Database</h1>");
 };
 
+// function will execute on /currencies or /currencies?min_value=0.01 (query-parameter) url
 const getCurrencies = (req, res) => {
   const { min_value } = req.query;
 
@@ -17,10 +18,7 @@ const getCurrencies = (req, res) => {
       ({ min_size }) => parseFloat(min_size) === parseFloat(min_value)
     );
 
-    if (
-      !isNaN(parseFloat(min_value)) &&
-      parseFloat(min_value).toString() === min_value
-    ) {
+    if (!isNaN(min_value)) {
       if (requiredObj.length) return res.send(requiredObj);
       else return res.status(404).send({ message: "Match not found" });
     }
@@ -34,6 +32,8 @@ const getCurrencies = (req, res) => {
   res.status(404).send({ message: "Invalid Query parameter" });
 };
 
+
+// function will execute on /currencies/:symbol (path-parameter)
 const getCurrencyBySymbol = (req, res) => {
   const { symbol } = req.params;
   const requiredSymbol = currencies.data.find(
@@ -44,12 +44,4 @@ const getCurrencyBySymbol = (req, res) => {
   res.status(404).send({ message: "Invalid currency Symbol" });
 };
 
-
-
-// exporting the functions
-
-// default-export in node.js
-// module.export = function-name, variable-name, class-name, etc... 
-
-// named-export in node.js
-module.exports = {homePage, getCurrencies, getCurrencyBySymbol}
+module.exports = { homePage, getCurrencies, getCurrencyBySymbol };

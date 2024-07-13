@@ -1,0 +1,50 @@
+
+# =====>    Currencies    <=====
+###
+GET http://localhost:8082
+
+###
+GET http://localhost:8082/currencies
+
+###
+GET http://localhost:8082/currencies/inr
+
+###
+GET http://localhost:8082/currencies/USD
+
+###
+GET http://localhost:8082/currencies?min_value=1
+
+###
+GET http://localhost:8082/currencies?min_value=0.01
+
+###
+GET http://localhost:8082/currencies?min_value=yash
+
+###
+GET http://localhost:8082/currencies?min_valuae=123sa
+
+
+
+# =====>    Users    <=====
+###
+GET http://localhost:8082/users
+
+###
+GET http://localhost:8082/users/6607d086-7159-4c26-beb1-280c9f9cbf35
+
+###
+GET http://localhost:8082/users/55322486-4169-4554-98ec-5882450c637e
+
+###
+GET http://localhost:8082/users/search?age=49&gender=male
+
+###
+GET http://localhost:8082/users/search?age=49
+
+###
+GET http://localhost:8082/users/search?gender=male
+
+###
+GET http://localhost:8082/users/search?age=12c&gender=adfs
+

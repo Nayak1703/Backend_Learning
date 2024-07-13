@@ -1,0 +1,105 @@
+1. If you see session-2's index.js page we have 2 endpoints and under that 2 endpoints we have multiple routes
+
+    // currencies:
+        app.get("/currencies", getCurrencies);
+        app.get("/currencies/:symbol", getCurrencyBySymbol);
+
+    // users:
+        app.get("/users", getAllUsers);
+        app.get("/users/search", getUserBySearch);
+        app.get("/users/:uuid", getUserByUUID);
+
+
+2. Now, suppose we want to add more routes (>=15 routes) under /currencies and /users, or add more request method to 
+same route (get,post,put,delete,path) to /currencies and /users.
+Or we want to remove all the routes of specific endpoint then we have to comment/delete all the routes manually. 
+if we add the routes like we did above then it will look somethine like below:
+
+        // currencies:
+            app.get("/currencies", getCurrencies);
+            app.get("/currencies/:symbol", getCurrencyBySymbol);
+            .
+            .
+            .
+
+        // users:
+            app.post("/users", getAllUsers); 
+            app.put("/users", getAllUsers);
+            app.delete("/users", getAllUsers);
+            app.patch("/users", getAllUsers);
+            app.put("/users/:uuid", getUserByUUID)
+            app.delete("/users/:uuid", getUserByUUID)
+            app.patch("/users/:uuid", getUserByUUID)
+            app.get("/users/group", getUserByUUID)
+            .
+            .
+            .
+
+
+3. Our Code should be readble and accessible, we should avoid to write bulky code, to achive this 
+We got, Express's Routes:
+Express's Routes is nothing but a way to write our routes in our project so that out code didnt become bulky,
+and it should be readble.
+
+
+4. To achive that we have to write all our routes in different file within "routes" folder and, import & use those file.
+   Like we do in "controllers".
+   Make sure you write all the routes of a endpoint in different file.
+   eg: suppose i want to define the routes under /currencies, so i will make a file of name currencies.routes.js
+       and define all my routes which will come under /currencies inside the file currencies.routes.js
+       for routes under /users enpoint you should different file and define its routes.
+
+   follow below steps (also see the routes-folder and its files):
+    -   1.  make a folder name routes.
+
+    -   2.  make a js files as per your requirement, and named it as endpoint.routes.js.
+            eg: suppose i want to add muitple routes on /users endpoint so my file name will be users.routes.js
+
+    -   3.  Now import Router() method from express, inside the all the routes-files within routes-folder
+            const router = require("express").Router()
+
+    -   4.  now use "router" insted of "app" to define the routes of that particular endpoint.
+            eg: previously we write our route like this:  
+                [ 
+                    const express = require("express") 
+                    const app = express()
+
+                    app.get("/", callBack-func)
+                    app.post("/:symbol", callBack-func)
+                    ...
+                ]
+            But now we can use "instance" of Router() method which return object, which we have given to "router" 
+            variable. in place of "router" variable we can write any name.
+            so,
+                [
+                    const router = required("express").Router()
+
+                    router.get("/group", callBack-func)
+                    router.post("/group", callBack-func)
+                ]
+            Define all the routes you want under the endpoint in this file
+
+    -   5.  As you can see that we are using the callBack-function here (route-function /controller-function) 
+            so we have to import our controller-function in this file.
+            eg:
+                const { getCurrencies, getCurrencyBySymbol} = require("../controllers/currencies.controllers.js");
+
+    -   6.  Now export the "router" which is instance of express's Router() method, 
+            here "router" is an object and it has key called stack and its value have array of objects.
+            the number of object will the same as routes we have define for that endpoint.
+            inside that object we have all detailes about that route.
+            eg:
+                module.exports = router;
+    
+    -   7.  Go to index.js file
+            import all the routes-file stored in variables, which we have define inisde routes-folder
+            now use app.use() method to define which routes-file should execute on particular endpoint
+            app.use() takes 2 parameter:
+                1. endpoint which is in string format eg: "/users", "/currencies", etc...
+                2. adding routes-file's variable that we have imported from routes-folder.
+                    eg:
+                        app.use("/users", userRoutes);
+                        app.use("/currencies", currencyRoutes);
+
+
+

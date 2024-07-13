@@ -1,0 +1,90 @@
+========>   import-export in javascript, React Frontend.   <========
+
+1.  In Frontend when we do import or export files (modules) in javascript. to do this 
+    we have to mention type="module" in HTML's <body></body> were we call our JS file.
+
+    We dont need to mention type="module" in react because is it handle by React's Babel (Js compiler)
+    that converts ES6 code to ES5 code that browser can understand.
+
+2.  We mention type="module" because it will mark our js file as ES-module.
+
+3.  Browsers supports ES modules (ecma-script file), after seeing the type browser will consider js-file  
+    as a Es-module due to this we can do sharing of code between files within project, using
+    import-export keywords.
+
+4.  If we dont mention type="module" then we cant do sharing of code using
+    import-export keywords (which is exculsive to ES-modules only)
+
+4.  Default Export: export default function-name / variable-name / class-name / etc...
+
+5.  Named Export: exports {homePage, getCurrencies, getCurrencyBySymbol}
+
+6.  Default Import: import function-name from "/Location-of-File"
+
+7.  Named Import: import {variable-1, variable-2, variable-3} from "/Location-of-File"
+
+8.  We can also combine default & named export / combine default & named import.
+
+
+
+========>   Import-export in Node.js    <=========
+
+1.  Node.js uses "comman-js" by default to share the code between files within project code because 
+    "Es-modules" is created recently. So most of node.js's code is the legecy code (use "comman-js").
+
+2.  If you see the package.json file of node project then you will find that there is no type-key
+    because it is using "comman-js" by default.
+
+3.  Just like in Es-modules we use "import" for importing the file and "export" for exporting the file.
+    In "comman-js" we write "module.export" for exporting the file and "require()" for importing the file
+
+4.  Default Export: module.export = function-name / variable-name / class-name / etc...
+
+5.  Name Export: module.exports = {homePage, getCurrencies, getCurrencyBySymbol}
+
+6.  Default Import: const variable = require("/Location-of-File")
+
+7.  Name Import: const {variable-1, variable-2, variable-3} = require("/Location-of-File")
+
+
+
+****   But we can also use Es-module in Node.js, just we have to do some changes...   ****
+
+-   If we use Es-module in node.js we can then use "import" for importing the file and "export" for exporting 
+    the file or code.
+
+-   Lets Switch from "comman-js" to "Es-module
+
+    Note: To use "Es-module" in node.js we have to make sure that all tha packages we are using as 
+          dependencies should support "Es-module". If packages does not support "Es-module" and we are using
+          Es-module in our node.js project then it will give error.
+          Majorly all the extensively used packages uses "Es-module", but we should also cross-check
+          on internet "does <package-name> support Es-module(esm)"
+
+          similarly some new-build pack does not support "comman-js"
+
+    1.  add "type: module" in package.json 
+    2.  Change the syntax of all the places we are importing:
+
+            =>   import express from "express";
+
+            =>   import {
+                    homePage, getCurrencies, getCurrencyBySymbol
+                 } from "./controllers/currencies.controllers.js";
+
+            =>   import currencies from "../apiData.json" assert {type: "json"};
+                    - import json file we have to add assert {type: "json"}
+
+
+    3.  Change the syntax of all the place we are exporting:
+
+            =>  export {homePage, getCurrencies, getCurrencyBySymbol}
+
+
+
+Note: Es-module (esm) is better and future of comman-js, so try to use Es-module in new projects it.
+      But most of the project and companies have old-code-base so they (70-80%) are using comman-js
+
+
+
+
