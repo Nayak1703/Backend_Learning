@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "express": "^4.19.2",
-    "lowdb": "^7.0.1"
+    "lowdb": "^7.0.1",
+    "nanoid": "^5.0.7"
   }
 }

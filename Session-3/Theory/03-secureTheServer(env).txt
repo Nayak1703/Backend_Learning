@@ -1,0 +1,106 @@
+======>     To ensure the security of our server and protect it from unauthorized access:       <=======
+
+    1.  Authorized Access Only:
+
+        -   We must allow only authorized clients to visit our server and make requests.
+        -   Without this protection, anyone with knowledge of the server's IP address and 
+            port number can access it and send requests.
+        -   Unauthorized clients who know the URLs its various endpoints can exploit them, potentially 
+            leading to spam requests and other security issues.
+        -   some endpoints which are made only for interal purpose, if that enpoint got exposed in public
+            then anyone can access that url's enpoint and get the response.
+        -   so we have to protect those enpoints also. 
+
+
+            ======>     method-1 (Static) inside users.controllers.js    <=======
+
+            1.  Define the password inside code.
+                    =>  const password = "LetMeIn"
+
+            2.  Client will send passwords as header of the request.
+                    =>  GET http://localhost:8082/users
+                        Authorization: LetMeIn
+
+            3.  Define a function where we will access the password given by client and compare it to 
+                password that is define in our code.
+                    =>  const verifyAuth = (authorization) => authorization === password
+
+            4.  Then we will call this function on every endpoint we want to secure, If password match then 
+                give response other wise throw error.
+                    => if (!verifyAuth(req.header.Authorization)) return res.sendStatus(403)
+
+
+
+    2.  Credential Protection:
+
+        -   There is a problem in 1st method, we are exposing our password in our code.
+        -   If we are defining APIs, database, other credential as a variable in our code inside project.  
+        -   It is crucial to hide all credentials, such as API keys, passwords, etc... from our code.
+        -   If these credential's variables are exposed, anyone accessing our server could potentially 
+            see and misuse them.
+        -   Exposing credential's variables poses a significant security risk.
+
+            // This is not a secure way to write passwords and all
+            // Assigning password to authorize the client
+                const password = "LetMeIn"
+
+            // Define the function to check is client authorize to get response
+                const verifyAuth = (authorization) => authorization === password;
+
+
+            ======>     method-2 (Dynamic)     <=======
+
+            1.  We reqired to secure the endpoints but we should not expose the passwords/keys
+
+            2.  So we will pass those crendentials in environment-variables during runtime of node.js
+                environment-variables:  this tell how should our node.js run by giving information like password,
+                where to find the database, etc...
+
+            3.  remove password variable from the method-1 and edit verifyAuth() function
+                    
+                    const verifyAuth = (authorization) => authorization === process.env.password
+                        ->  process.env: when node's process start then access the "password" key from env (environment-variables)
+                        ->  node's process start when we run the node.js like: node index.js, nodemon index.js, npm run dev 
+            
+            4.  To pass the environment-variables during runtime of node.js do:
+                        ->  password=LetMeIn npm run dev (Linux/macos)
+                        ->  set password=LetMeIn&&npm run dev (windows)
+
+
+            ======>     method-3 (Dynamic)      <======
+            
+            1.  In this method we dont write credentials (keys & passwords) as environment-variable during
+                runtime of the node.js  
+
+            2.  Suppose we are having multiple keys, passwords, and other important crendentials, it will be 
+                very hectic work to write all of them during runtime of node.js.
+            
+            3.  So we will make ".env" file on root-level of our project and mention all our credential inside 
+                that file.
+
+            4.  Then we will mention ".env" file inside ".gitignore" file, so that during code push ".env" file 
+                should get ignore.
+
+            5.  After doing above thing, it will not work because there is no way our code will get to know
+                about .env file and credential's variables we have define inside .env file
+            
+            6.  So we have to downlaod devloper-dependency package called "dotenv".
+
+                Note:   i call it devloper-dependency because in actual production we dont want .env file in our
+                        server and server rarely have downtime, once it has been started because people are 
+                        using it. So we will write our credential's variables (environment-variable) during 
+                        runtime of node.js in command-line during actual production just like method-2.
+            
+            7.  In backend dotenv-package will find .env file and put all the credential's variables into
+                environment-variable.
+
+            8.  we have download and require it (see index.js).
+                    -   npm i dotenv -D
+
+                    // inside index.js because all the controllers and routes can have access of the credential's variables
+                        -   require("dotenv").config()      
+
+
+
+Note:   We should add .env file inside .gitignore file, but in this case i am commenting the .env inisde
+        .gitignore because i want .env file should get push into github so i can refer it later.

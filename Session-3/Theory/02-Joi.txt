@@ -1,1 +1,34 @@
-As You can see
+============>   JOI   <============
+
+-   When client send data in request, client is accepting some response based on data he provided. 
+-   Before processing the data in server, we should always validate the data sent by client.
+-   This process secure our server and database from bad-data, it also increase the error-handling.
+
+-   Till now to validate data we are doing it by ourself (writing all the code to validate the request-data)
+-   But we can use some package that does these validation for ourself.
+-   That package is called "Joi", it doesn't have any fullform
+
+-   "Joi" is data-validator for Javascript mostly used with Node.js, "Joi" ensures that the data your
+    application handles should be valid and structured correctly.
+-   "Joi" does this by making schema to validate data.
+-   schema: it the rule or structure we define for the data. 
+    like (type-of-data, any condition that data should fullfill)
+-   "Joi" also return appropriate error-message if data doesn't full the validation
+
+-   This helps to do maintain
+    Data-valiation: Ensure that correct data should only passed.
+    Error-handling: if data does not validate throw a appropriate error.
+    Readability: due to less code and english-syntax it makes user to understand and write the code.
+
+
+
+============>   How to use JOI?   <============
+
+1.      npm install joi;
+
+2.      const Joi = require('joi');
+
+3.      const schema = Joi.object({
+        });
+
+4.      check users.controller.js file for joi's validation

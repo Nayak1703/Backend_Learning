@@ -2,6 +2,10 @@ const express = require("express");
 const app = express();
 const PORT = 8082;
 
+// inside index.js because all the controllers and routes can have access of the credential's variables
+// all the variables inside .env file will get loaded and we are use them by process.env.
+require("dotenv").config()
+
 
 
 // =========>  Express Routes  <=========

@@ -1,6 +1,18 @@
-import db from '../index.js';
+// import db from '../index.js';
 // this package will create random uniqe ID
 import { nanoid } from "nanoid";
+
+// importing lowdb package to make our own database
+import { JSONFilePreset } from 'lowdb/node'
+
+// making a object of cities
+const defaultData = { cities: [] }
+// when we get a request from client, it will automatically
+// make db.json file if it is not present and add value of defaultData to it.
+const db = await JSONFilePreset('db.json', defaultData)
+
+
+
 
 // since we are fetching response from db.json we will use async function 
 const getCity = async (req, res) => {
