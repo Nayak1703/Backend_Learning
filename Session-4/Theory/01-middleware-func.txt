@@ -1,0 +1,99 @@
+=======>    Flow of the Request-Response Cycle     <======
+
+
+I will take example of /users route because it will cover all the concept
+
+    1.  Client will visit http://localhost:8082/users/search?gender=male&age=49 page, by this client is 
+        sending GET request from its browser to server which is host on localhost and its port is 8082.
+
+    2.  Then server receive the request and it will look into its Backend-Code, it will find that we have 
+        define the response on this particular request, if we have not define then it will send error(404).
+
+    3.  Let see flow of the Backend-Code:
+
+            -   It will go to the index.js, to app.use("/users", userRoutes);
+
+            -   we have imported "userRoutes" from "users.routes.js" file, inside this file we have define all
+                the routes realted to /users to make our code more readable and accessable. 
+
+            -   Then it will see that we have imported "getUserBySearch" controller-function from "controllers"
+                folder to implement /search route "Router.get("/search", getUserBySearch)"
+
+            -   Then it will go to "getUserBySearch" function, inside this function we are using 
+                    1.  client-authentication function. if failed then send response as error
+                    2.  function to validate query-parameter which is provided by client. if failed then send 
+                        response as error.
+                    3.  if the client pass all the authentication and validation then give response based on 
+                        client request.
+
+
+As u have seen, when client send any request to our server then above process is been followed.
+But you will see there is problem in this code you can see this in session-3 
+
+Problem is that we are repeating our code:
+Example:
+    -   client-authentication we are repeatating the client-authentication for every request made by client under
+        /users route.
+
+So we have to make our client-authentication centralized so that we dont need to repeat it.
+
+
+
+=======>    Middleware-Function     <======
+
+Why we need middleware-function?
+=>  1.  Middleware allows you to write reusable pieces of code that can be applied to multiple routes.
+    2.  Middleware helps in keeping your code organized and manageable by separating different concerns. 
+    3.  Middleware can pre-process requests before they reach the final route-handler (controller-function). 
+    4.  Middleware can also modify responses before they are sent back to the client.
+
+
+What is the middleware-function?
+=>  It is the function, that have access of the request-object (req), response-object (res)
+    and can call next middleware-function using next() method in the process of request-object cycle.
+
+    syntax:
+    cont functionName = (req,res,next) => {
+        ...
+        next()
+    }
+
+    Analogy:
+        consider a Relay-Race where there are 4 players.
+            player-1 have rod and he has to pass it to player-2.
+            player-2 have to pass the rode to player-3 
+            player-3 will pass the rode to player-4 and race will finish.
+
+    Similarly:
+        *   Once a request made by client to particular route, then in backend we should use middleware-function 
+            to process the request (like: check the client-authentication, validate the provided-query, etc...)
+            until the request reaches to the controller-function of that route.
+
+        *   if the request does not satisfy the condition of any middleware-function, then middleware-function can 
+            send associate-error response to the client and end the request-response cycle.
+
+        *   if Middleware-function is not ending the request-response-cycle then it will use next() method, 
+            this method is used to call another middleware-function by this we can maintain the flow for 
+            the request to travel.
+
+        *   middleware-function have access and can edit the request & response object.
+
+        *   we can technically say controller-function is also a middleware-function.
+
+
+
+=======>    Implementation of Middleware-Function    <======
+
+1.  I have removed all the Client-authentication code and validation code from "user.controllers.file"
+
+2.  I have created a "middlewares" folder, inside it i have define the all the middleware-function
+
+3.  see the code for better expalination
+
+
+
+
+
+
+
+ 

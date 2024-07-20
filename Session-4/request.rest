@@ -1,0 +1,37 @@
+# =====>    Currencies    <=====
+###
+GET http://localhost:8082
+
+###
+GET http://localhost:8082/currencies
+
+###
+GET http://localhost:8082/currencies/USD
+
+###
+GET http://localhost:8082/currencies?min_value=0.01
+
+###
+GET http://localhost:8082/currencies?min_valuae=123sa
+
+
+
+# =====>    Users    <=====
+###
+GET http://localhost:8082/users
+Authorization: LetMeIn
+
+###
+GET http://localhost:8082/users/468fa5aa-c00e-4f71-951f-607a79b26299
+Authorization: LetMeIn
+
+###
+GET http://localhost:8082/users/search?age=49&gender=male
+
+###
+GET http://localhost:8082/users/search?gender=MaLe
+Authorization: LetMeIn
+
+###
+GET http://localhost:8082/users/search?age=12a&gender=male
+Authorization: LetMeIn
