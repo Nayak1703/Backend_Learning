@@ -1,4 +1,2 @@
 1.  Middleware
 2.  Globally & Selectively Applying Middleware
-3.  Stroing data in MongoDB
-4.  Using Mongoose ODM

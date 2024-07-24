@@ -1,0 +1,2 @@
+1.  Stroing data in MongoDB
+2.  Using Mongoose ODM
