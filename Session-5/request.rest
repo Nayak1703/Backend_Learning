@@ -1,0 +1,70 @@
+POST http://localhost:8082/blogs
+
+###
+POST http://localhost:8082/blogs
+Content-Type: application/json
+
+{
+    "title": "Travel blog on Maharashtra",
+    "authors": ["Sant Tukaram", "Sant Namdev"],
+    "content": "Land of Chattrapati Shivaji Maharaj",
+    "publishedAt": null
+}
+
+
+###
+POST http://localhost:8082/blogs
+Content-Type: application/json
+
+{
+    "title": "Travel blog on Odisha",
+    "authors": ["Salabeg", "Chaitanya Mahaprabhu"],
+    "content": "Land of Jagannath",
+    "publishedAt": null
+}
+
+
+###
+POST http://localhost:8082/blogs
+Content-Type: application/json
+
+{
+    "title": "Travel blog on Vrindavan",
+    "authors": ["Prabhupada", "Premanand maharaj"],
+    "content": "Land of Radha-Krishna",
+    "publishedAt": null
+}
+
+
+###
+POST http://localhost:8082/blogs
+Content-Type: application/json
+
+{
+    "title": "Travel blog on Ayodhya",
+    "authors": ["Tulsi Ram"],
+    "content": "Land of Sita-Ram",
+    "publishedAt": null
+}
+
+
+###
+GET http://localhost:8082/blogs
+
+
+###
+GET http://localhost:8082/blogs/66a7e90756232cd5be121e74
+
+
+###
+PATCH http://localhost:8082/blogs/66a93a039a013a28e8b7f4a6
+Content-Type: application/json
+
+{
+    "title": "Travel blog on Vrindavan a village of Mathura",
+    "content": "This land is full memories of Radha-Krishna 😎"
+}
+
+
+###
+DELETE http://localhost:8082/blogs/66a7e90756232cd5be121e74

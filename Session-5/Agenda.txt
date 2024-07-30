@@ -1,0 +1,7 @@
+=======>    Agenda     <=======
+
+CURD Operation
+
+1. Creating Documents in MongoDB
+2. Reading from MongoDB
+3. Upadting and Deleting the MongoDB's documents

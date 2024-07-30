@@ -1,0 +1,21 @@
+=======>    POST    <========
+
+    1.  This is the format Document is get added on my websiteBlog collection of website DB
+        here,
+        _id: it is unique id which is given by mongoDB.
+        _v: it is use to maintain the track of version of our Document in case of any update.
+
+        {
+            "title": "Travel blog on Maharashtra",
+            "authors": [
+                "Sant Tukaram",
+                "Sant Namdev"
+            ],
+            "content": "Land of Chattrapati Shivaji Maharaj",
+            "publishedAt": null,
+            "_id": "66a7c32dbf061eeda70ce85e",
+            "__v": 0
+        }
+
+
+    2.    
