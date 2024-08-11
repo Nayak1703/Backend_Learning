@@ -1,0 +1,57 @@
+When client can send multiple quires in requested url.
+example:
+    /blogs/search?title=BLOG_TITLE&author=AUTHOR_EMAIL
+    /blogs/search?title=Travel%20blog%20to%20Puri&author=radhaK@gmail.com
+
+In the above example we are sending request to server that give the blog where we title is 
+"Travel blog on Puri" and author's email should be "radhaK@gmail.com".
+
+if server match the condition given by client at Database then it will return the blog otherwise
+not found message.
+
+
+Note:
+    Our server will not respond to this url: 
+    http://localhost:8082/blogs/search?title=Travel blog on Puri&author=radhaK@gmail.com
+    
+    because this URL is not properly encoded the server will not understand the meaning of spaces.
+    To avoid this we have to write %20 in place of space because According to URL-encodeing 
+    empty-space ( ) value is %20.
+
+    normal people dont know what is URL-encodeing so browser automatically make request url to encoded.
+    To check / make url encoded we can use browser's console write encodeURI(our-url-goes here)
+    this will give us proper encoded-url.
+
+    so URL after encoded (backend-server will understand this):
+    http://localhost:8082/blogs/search?title=Travel%20blog%20on%20Puri&authors=radhaK@gmail.com
+
+
+But there is 2 problem here:
+    1. requested-query is case sensitive
+    2. client have to write whole title in query.
+if we change the case or didnt write the full title in url of the request-query then it will not match the 
+value in database and return not-found to client.  
+
+To avoid this we have to use mongoDB's regular-expression (regEx):
+    filed: { $regex: /pattern/, $options: '<options>' }
+
+    regex will
+    see the code.
+
+GET http://localhost:8082/blogs/search?title=vrinda => will return blog that have vrindavan in the title.
+
+GET http://localhost:8082/blogs/search?title=travel => will return blog that have travel in the title.
+
+
+
+// Blog.find({condition...}) will travers through each document in collection, it will return the document 
+// which satisfy the condition given in it.
+
+// title: { $regex: new RegExp(title), $options: 'i' }: it will take title from client and match with
+// each title of document and if it gets any title that include client's title then it will return that document
+// it also allow client to enter case-insensitive title
+
+// { $elemMatch: { email: authors } }: it will take author's email from client and go the authors-key of each Document
+// since authors-key's value is array so it travers through the array and it will go to email-key of 
+// each element of the authors's array. and if it found that client'email matches the to the anyone of the 
+// author's element's email then it will return that blog.

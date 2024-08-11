@@ -1,0 +1,4 @@
+Nested Schema
+Validation on the backend
+MongoDB Queries
+Service Layer for Express

@@ -2,10 +2,10 @@
 // this package will create random uniqe ID
 import { nanoid } from "nanoid";
 
-// importing lowdb package to make our own database
+// importing lowdb package to make our own database, JSONFilePreset is the function help to make DB
 import { JSONFilePreset } from 'lowdb/node'
 
-// making a object of cities
+// defaultData will store initial value of DB. i.e. { cities: [] }
 const defaultData = { cities: [] }
 // when we get a request from client, it will automatically
 // make db.json file if it is not present and add value of defaultData to it.

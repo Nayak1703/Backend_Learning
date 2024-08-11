@@ -1,0 +1,86 @@
+GET http://localhost:8082/blogs
+
+
+###
+GET http://localhost:8082/blogs/66a7e8f256232cd5be121e72
+
+###
+GET http://localhost:8082/blogs/search?title=Travel%20blog%20on%20Puri
+
+###
+GET http://localhost:8082/blogs/search?author=radhaK@gmail.com
+
+### OLD POST Request ###
+POST http://localhost:8082/blogs
+Content-Type: application/json
+
+{
+    "title": "Travel blog on Dwarka",
+    "authors": ["demoname-1", "demoname-2"],
+    "content": "Land where krishna ruled",
+    "publishedAt": null
+}
+
+###
+POST http://localhost:8082/blogs
+Content-Type: application/json
+
+{
+    "title": "Travel blog on Vrindavan",
+    "authors": [
+        {
+            "fullName": "Yash Nayak",
+            "twitterHandle": "@_yashNayak",
+            "email": "yashsukantnayak@gmail.com",
+            "image": "https://demo-img-link.com/img-1.jpg"
+        },
+        {
+            "fullName": "Krishna",
+            "twitterHandle": "@_krsna",
+            "email": "krsna@supreme.com",
+            "image": "https://demo-img-link.com/img-2.jpg"
+        }
+    ],
+    "content": "Land where krishna childhood past",
+    "publishedAt": null
+}
+
+
+###
+POST http://localhost:8082/blogs
+Content-Type: application/json
+
+{
+    "title": "Travel blog on Ayodhya",
+    "authors": [
+        {
+            "fullName": "Radha Krishna",
+            "twitterHandle": "@_rKrishna",
+            "email": "radhaK@gmail.com",
+            "image": "https://demo-img-link.com"
+        },
+        {
+            "fullName": "Sita ram",
+            "twitterHandle": "@_sitaRam",
+            "email": "sitaRam@supreme.com",
+            "image": "https://demo-img-link.com/img-2.jpg"
+        }
+    ],
+    "content": "Land where ramji born",
+    "publishedAt": null
+}
+
+
+
+###
+PATCH http://localhost:8082/blogs/66a93a039a013a28e8b7f4a6
+Content-Type: application/json
+
+{
+    "title": "Travel blog on Vrindavan a village of Mathura",
+    "content": "This land is full memories of Radha-Krishna 😎"
+}
+
+
+###
+DELETE http://localhost:8082/blogs/66a7e90756232cd5be121e74

@@ -15,7 +15,7 @@ const getBlogData = async (req, res) => {
 }
 
 // Get blog by id.
-// always remember that when we send error message to client from backend, if client is sending some invaid request.
+// always remember that when we send error message to client from backend, if client is sending some invalid request.
 // then always send required response dont give detailed info about the error client is doing, beacuse
 // there is chance that hacker is trying to do something.
 const getBlogById = async (req, res) => {
@@ -76,7 +76,7 @@ const postBlog = async (req, res) => {
         // else you have to use external package called "bodyParser" to parse the request-body inside the express-server.
 
         // To use bodyParser -> download: "npm i body-parser" -> import: "const bodyParser = require(body-parser)" 
-        // -> replace app.use(express.json()): app.use(bodyParser.json()) 
+        // -> replace app.use(express.json()) with app.use(bodyParser.json()) 
 
         // i have added the app.use(express.json()) in index.js file, you will see that we have succesfully
         // log the request-body 
@@ -133,7 +133,7 @@ const updateBlog = async (req, res) => {
 // ======> DELETE Request <=======
 
 // Model.findByIdAndDelete() used to the delete the Document based on its _ID
-// 204 status-code: N-content, That server dont want to send body to client.
+// 204 status-code: No-content, That server dont want to send body to client.
 const deleteBlog = async (req, res) => {
     try {
         await Blog.findByIdAndDelete(req.params.id)

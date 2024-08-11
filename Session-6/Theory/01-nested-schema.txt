@@ -1,0 +1,112 @@
+========>   1   <========
+
+we have created schema to validate the req-body coming from client for blog before adding the data inside our database.
+    const blogSchema = new mongoose.Schema({
+        title: {type: String, required: true, unique: true},
+        authors: [String],
+        content: String,
+        publishedAt: Date,
+    }, {timestamps: true})
+
+
+If you see our database, each element of array is a object and each object have "authors" key.
+as of now value of authors is array of authors name.
+
+[
+    {
+        "_id": "66a7e8f256232cd5be121e72",
+        "title": "Travel blog on Odisha",
+        "authors": [
+          "Salabeg",
+          "Chaitanya Mahaprabhu"
+        ],
+        "content": "Land of Jagannath",
+        "publishedAt": null,
+        "createdAt": "2024-07-29T19:09:38.354Z",
+        "updatedAt": "2024-07-29T19:09:38.354Z",
+        "__v": 0
+    },
+    {}, ...
+]
+
+
+
+
+========>   2   <========
+
+Now i have to populate our author's array with more info about the author like author's fullname, email, twitterHandle,
+image and our final database should look like this.
+
+[
+    {
+        "_id": "66a7e8f256232cd5be121e72",
+        "title": "Travel blog on Odisha",
+        "authors": [
+            {
+                "fullname": "Jhon Doe",
+                "email": "jhon@random.com",
+                "twitterHandle": "@_jhonDoe_",
+                "image": "https://demo-image-link-1/img.jpg"
+            }
+            {
+                "fullname": "Yash Nayak",
+                "email": "yash@random.com",
+                "twitterHandle": "@_yashNayak_",
+                "image": "https://demo-image-link-2/img.jpg"
+            }
+        ],
+        "content": "Land of Jagannath",
+        "publishedAt": null,
+        "createdAt": "2024-07-29T19:09:38.354Z",
+        "updatedAt": "2024-07-29T19:09:38.354Z",
+        "__v": 0
+    },
+    {}, ...
+]
+
+previously i have mention in schema that -- authors: [string] -- means authors should have array of string.
+since we want to populate the value of authors with more info in object format  (you can refer to the above database),
+we have to change the schema for the authors to restric and validate the fields of authors.
+
+const blogSchema = new mongoose.Schema(
+    {
+        title: {type: String, required: true, unique: true},
+        authors: [
+            {
+                fullName: {type: String, maxLength: 25},
+                twitterHandle: {type: String},
+                email: {type: String, requied: true, maxLength: 50}
+                image: {type: String}
+            }
+        ],
+        content: String,
+        publishedAt: Date,
+    }, {timestamps: true}
+)
+
+
+This is called nested-schema.
+
+if we add more nested-schema directly to the code, then our code will become clumsy which decrease the reablity.
+so make seprated schema for authors and add that schema inside the blogSchema.
+
+const authorSchema = new mongoose.Schema (
+    {
+        fullName: {type: String, maxLength: 25},
+        twitterHandle: {type: String},
+        email: {type: String, requied: true, maxLength: 50}
+        image: {type: String}
+    },
+    {_id: false}
+)
+
+const blogSchema = new mongoose.Schema(
+    {
+        title: {type: String, required: true, unique: true},
+        authors: [authorSchema],
+        content: String,
+        publishedAt: Date,
+    }, {timestamps: true}
+)
+
+by this method we can make nested-schema more clean and readble.

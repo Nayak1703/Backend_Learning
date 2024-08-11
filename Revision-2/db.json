@@ -1,0 +1,22 @@
+{
+  "cities": [
+    {
+      "id": "CicSexJy0-CWLBv6UFR8P",
+      "name": "Mumbai"
+    },
+    {
+      "id": "yNQFM1FJxhnarurYAQUjq",
+      "name": "Mumbai",
+      "landmarks": [
+        {
+          "name": "Marin Lines",
+          "price": 0
+        },
+        {
+          "name": "Juhu beach",
+          "price": 0
+        }
+      ]
+    }
+  ]
+}

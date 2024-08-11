@@ -1,0 +1,44 @@
+GET http://localhost:8082/cities
+
+
+###
+GET http://localhost:8082/cities/yNQFM1FJxhnarurYAQUjq
+
+
+###
+POST http://localhost:8082/cities
+Content-Type: application/json
+
+{
+    "name": "Mayapur",
+    "landmarks": [
+        {
+            "name": "ISKCON Temple",
+            "price": 40
+        },
+        {
+            "name": "Chaitanya mahaprabhu",
+            "price": 40
+        }
+    ]
+}
+
+
+###
+PUT http://localhost:8082/cities/yNQFM1FJxhnarurYAQUjq
+Content-Type: application/json
+Authorization: LetMeIn
+
+{
+    "name": "Mumbai",
+    "landmarks": [
+        {
+            "name": "Marin Lines",
+            "price": 0
+        },
+        {
+            "name": "Juhu beach",
+            "price": 0
+        }
+    ]
+}
