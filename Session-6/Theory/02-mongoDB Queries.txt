@@ -19,7 +19,7 @@ Note:
     empty-space ( ) value is %20.
 
     normal people dont know what is URL-encodeing so browser automatically make request url to encoded.
-    To check / make url encoded we can use browser's console write encodeURI(our-url-goes here)
+    To check / make url encoded we can use browser's console write encodeURI("our-url-goes here")
     this will give us proper encoded-url.
 
     so URL after encoded (backend-server will understand this):

@@ -2,10 +2,10 @@ GET http://localhost:8082/blogs
 
 
 ###
-GET http://localhost:8082/blogs/66a7e8f256232cd5be121e72
+GET http://localhost:8082/blogs/66b8976825735b4a34480194
 
 ###
-GET http://localhost:8082/blogs/search?title=Travel%20blog%20on%20Puri
+GET http://localhost:8082/blogs/search?title=pu
 
 ###
 GET http://localhost:8082/blogs/search?author=radhaK@gmail.com
@@ -26,7 +26,7 @@ POST http://localhost:8082/blogs
 Content-Type: application/json
 
 {
-    "title": "Travel blog on Vrindavan",
+    "title": "Travel blog on Trimbakeshwar",
     "authors": [
         {
             "fullName": "Yash Nayak",
@@ -73,14 +73,14 @@ Content-Type: application/json
 
 
 ###
-PATCH http://localhost:8082/blogs/66a93a039a013a28e8b7f4a6
+PATCH http://localhost:8082/blogs/66b8934279e594dd4a8e037e
 Content-Type: application/json
 
 {
-    "title": "Travel blog on Vrindavan a village of Mathura",
+    "title": "Travel blog on Vrindavan a village of Mathura😆😏😶😚",
     "content": "This land is full memories of Radha-Krishna 😎"
 }
 
 
 ###
-DELETE http://localhost:8082/blogs/66a7e90756232cd5be121e74
+DELETE http://localhost:8082/blogs/66b8934279e594dd4a8e037e

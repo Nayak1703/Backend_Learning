@@ -15,7 +15,7 @@ const validatorPack = require("validator");
 // ====>    This is the nested-schema.    <=====
 
 // Note: This Schema-vaildation you see (type, maxLength, requied, etc...) is the inbuild validation of mongoose.
-// this validation happen before data is pushed / update inside the Database.
+// this validation happen right before data is pushed / update inside the Database.
 
 // The flow of data till now: 
 // 1. Client Authentication, 2. Joi Validation, 3. Schema Validation.

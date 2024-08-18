@@ -1,0 +1,19 @@
+To see the Layered-Architecture of the request-response cycle see the slides given by crio.
+this architecture helps us to debug (helps us to locate where actual error has been occur)
+
+
+The request passes through each layer in order:
+    index.js -> router -> middelware -> controllers -> services -> models -> database
+
+So with this architecture we can identify which part of our application is causing a problem, by log statements to 
+check where the request reached.
+
+
+
+Approach to debug:
+    -   Move with flow shown in above architecture.
+    -   Console log the errors on layer level to identify till where did our request reach.
+    -   Use try-catch for error handling.
+    -   if you are sending json data as response use express.json() in your code
+    -   check for spelling mistake, do you have done proper destructuring.
+    -

@@ -1,0 +1,28 @@
+Till now controller-function inside the controllers-file have responsible to 
+    1.  Take request
+    2.  Do the business logic based on request (interaction with db)
+    3.  Sending response based on the request.
+
+Controller-function should ony take care of the flow of the data (receving / responding request)
+all the business-logic of the application should kept different from controller-function
+
+So we will make a service layer to abstract the business-logic from the application.
+by making a services folder and inside the services folder we will make service file.
+inside the services-file we will add the business-logic related to interaction with database.
+
+service-file should:
+    1.  Contain business logic
+    2.  Leverage the data access layer to interacte with database
+    3.  Be framework agnostic (we separate the business-logic to different file because if our
+        backend-server changes to different tech (express - django,etc...) in that case we just
+        have to import the business-logic. means business-logic in independent of the server 
+        tech).
+
+Services-file Should not:
+    1.  have access of req & res object
+    2.  handle responding to te client.
+    3.  should not contain any request-method, header, http, etc...
+    4.  Directly interact with the database (we’ll use models layer for it)
+
+means services-file should contain only pure business-logic nothing else.
+
