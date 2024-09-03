@@ -1,5 +1,7 @@
-console.log("Hey from server")      //  --> This will run
+const yash = {
+    nam: "yash",
+    age: 32,
+    city: "mumbai"
+}
 
-//  --> This will not run
-console.log(window)
-console.log(alert("yash"))     
+module.exports = yash;

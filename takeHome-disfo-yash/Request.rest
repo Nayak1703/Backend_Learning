@@ -1,0 +1,16 @@
+POST http://localhost:8082/user/register
+Content-Type: application/json
+
+{
+    "username": "krishan108",
+    "email": "krsna@go.in"
+}
+
+
+###
+GET http://localhost:8082/user/all
+x_api_key: Abracadabra
+
+
+###
+GET http://localhost:8082/user/krishan108
