@@ -1,0 +1,4 @@
+Creating a signup route
+Hashing Passwords
+creating Login Routes
+Verifying Hashed Passwords

@@ -1,0 +1,29 @@
+we have understood what is encoding, encryption, hashing.
+Now we will hashed user's password before storing into DB
+
+======>     Hashing password in Node.js     <======
+
+    -   npm i bcrypt
+    -   we will use bcrypt library to hash password, there are lot stronger hash-algo present but
+        for simplicity we will use bcrypt-package
+    -   this package provide us funcationlity of the adding-salt, hashing, verify string.
+
+    -   this is business-logic so we will using this hashing-algo in sevices.
+    -   please see auth.services.js for more info
+
+    -   Input:
+        {
+            "username": "Radha-raman",
+            "email": "RaRa@golok.com",
+            "password": "radhaRaman108@"
+        }
+
+    -   Output:
+        {
+            "fullName": "",
+            "username": "radha-raman",
+            "email": "rara@golok.com",
+            "password": "$2b$10$JsbjA6wEKHg8u1r9Zm2GxeUeVm7MDy6ed8mrrRRwatK4CYIwnCTtC",
+            "_id": "66d9808fc3dfb6a0b56fbf59",
+            "__v": 0
+        }
