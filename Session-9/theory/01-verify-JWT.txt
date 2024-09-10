@@ -1,0 +1,21 @@
+So far, we have created a JWT token in the backend server and sent it to the client as a cookie.
+However, we want to verify subsequent request from the client by checking its JWT token from cookie 
+to verify the user’s authenticity.
+
+1.  see AuthUsingJWT.middleware.js file to know how to verify the jwt-token for authorization using JWT.
+
+OR
+
+2.  now we will use Passport package to verify the token.
+
+    -   npm i passport passport-jwt: 
+            passport: passport package
+            passport-jwt: since we are using jwt-token, so we will use passport-jwt (strategy) package to 
+                          verify the jwt token. There are 500+ strategy/configuraton in passport.
+
+    -   make config-folder and inside it make passport.js
+            see the /config/passport.js, index.js, AuthUsingPassport.middleware.js,
+            user.routers.js file for future details.
+    
+    -   
+

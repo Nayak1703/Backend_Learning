@@ -1,0 +1,41 @@
+-   Cookies are a way to store data inside a browser, like localStorage, but they provide us more control than just a 
+    key-value pair
+
+        *   We can set the cookies with an expiry time for the cookie data
+        *   Use the server to set the cookie on the frontend (so that it’s secure, 
+            and not accessible by the frontend console)
+
+-   Over the frontend we can access all the cookies using document.cookie
+
+-   go to the webisite where you have loggedIN and go to the inspect -> application -> cookie 
+    over there you will see the cookies and lots of info related to it. 
+    and to access the cookie in console we can use  --  document.cookie
+
+-   to secure our cookie so that it not able to access inside console use   --   httpOnly: true
+
+    res.cookie("token-name", jwt-token, {option-key: option-value})
+
+    example: see the auth.controller.js
+    res.cookie('token', result.token, 
+        {
+            maxAge: 60000,  // expiration of the cookie and it takes millisec as value
+            httpOnly: true  // this will not allow to access the cookie in console.
+        });
+
+
+-   So the flow till now
+
+    → The server will generate a JWT token 
+    → But instead of sending it as a JSON, it will send a cookie to the client 
+    → The client will set the cookie inside the browser depending on the request 
+    → And then later use this token with every request that requires authorization.
+
+
+Also, when {withCredentials: true} is used in the frontend code, it means cookies related to the domain will be sent 
+along with the request as part of the headers, allowing the server to handle sessions or authentication.
+
+
+
+
+
+

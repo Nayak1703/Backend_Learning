@@ -1,0 +1,24 @@
+POST http://localhost:8082/auth/signup
+Content-Type: application/json
+
+{
+  "username": "Radha-raman",
+  "email": "RaRa@golok.com",
+  "password": "radhaRaman108@"
+}
+
+###
+POST http://localhost:8082/auth/login
+Content-Type: application/json
+
+{
+  "username": "Radha-raman",
+  "password": "radhaRaman108@"
+}
+
+
+### Sending jwt token from client-side to authenticate the client and its request.
+# this is standard format to send the token from the client-side, here bearer means posses (client posses token).
+# bearer us useful when we use the passport for verification.
+GET http://localhost:8082/user/Radha-raman
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ5ODIyYmMzZGZiNmEwYjU2ZmJmNWQiLCJpYXQiOjE3MjU5ODM1NzgsImV4cCI6MTcyNTk4MzYzOH0.Ti2szHlId3Yda7_l_fLJBCikONtKSj_m2F0LynMt-JM

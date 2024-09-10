@@ -1,0 +1,182 @@
+=====>  What is the problem we are facing?  <=====
+
+    -   When a user logs in, they are successfully redirected to the home page of the website.
+    -   If the user performs an action on the home page that requires interaction with the 
+        backend server, an issue arises.
+    -   The backend server has no inherent way of knowing if the action is being performed by the 
+        logged-in / authorized user.
+    -   Since HTTP is a stateless protocol, it does not store information about whether a user is logged in or 
+        authorized. Each request is treated independently.
+    -   As a result, when the user performs any action requiring backend interaction, the server has no context 
+        about the user's login state.
+    -   Due to this lack of user state tracking, the user may automatically be logged out when attempting actions 
+        requiring backend authentication or authorization.
+
+
+=====>  To solve this problem let see one of the solution which is used in 90s and late 2000?  <=====
+
+    1.  User Login Process:
+        -   Taking Facebook as an example: when a user submits their username and password, this information is 
+            sent to the backend server for authentication.
+        -   The backend server then verifies the user's credentials against the database.
+    2.  Authentication Success:
+        -   If the user’s credentials are correct, the backend server sends the homepage of Facebook and grants 
+            the appropriate permissions (request-method rights) to perform actions on the website.
+    3.  Maintaining User State:
+        -   To keep track of whether the user is authenticated, the backend server employs one of these three methods:
+            *   Maintain the user's state within the backend server itself.
+            *   Store the user's state in the database where actual data is stored.
+            *   Use a separate database specifically for managing user states.
+    4.  Session ID Creation:
+        -   Upon a successful login, the backend server creates a sessionId for the user.
+        -   This sessionId is included in the server’s response and sent to the client (user) inside the response headers.
+    5.  Storing Session ID:
+        -   On the client side, the sessionId can be stored in localStorage, sessionStorage, or in cookies, depending on 
+            the developer’s implementation.
+    6.  User Action with Session ID:
+        -   When the user performs any action after logging in, the sessionId is sent as part of the request headers back 
+            to the backend server.
+    7.  Authentication Based on Session ID:
+        -   The backend server authenticates the user by matching the sessionId received from the client with the sessionId it has stored.
+        -   If the sessionId matches, the user is authorized to perform the requested action.
+
+
+=====>  There is problem above solutions (3rd steps)    -- see 00-jwt.drawio  <=====
+
+    1.  Maintain the user's state within the backend server itself.
+   
+        *   Single Server Limitation:
+            -   This solution works effectively if Facebook operates with a single server and there 
+                is minimal load on it.
+        *   Scaling to Handle High User Traffic:
+            -   Due to a high volume of users and countless requests per second, Facebook scales up its 
+                infrastructure by adding more servers.  
+            -   Currently, Facebook utilizes over 1000 servers to handle the vast number of incoming requests.
+        *   Role of Load Balancer:
+            -   To efficiently distribute traffic across servers, Facebook uses a load balancer. The load balancer’s 
+                task is to allocate requests to different servers based on current load and utilization.
+        *   Problem with Multi-Server Setup:
+            -   Imagine the following scenario: at the time of login, your request is handled by Server-1, and it stores 
+                your session state to manage authentication.
+            -   Later, when you send another request (such as commenting), the load balancer directs your request to Server-2 
+                because Server-1 is fully occupied.
+        *   Session Mismatch Issue:
+            -   Server-2 does not have access to the session information stored by Server-1.
+            -   As a result, Server-2 cannot recognize your sessionId, leading to the server denying your request.
+        *   Automatic Logout:
+            -   Due to the sessionId mismatch, the system assumes you are not authenticated, which results in an automatic 
+                logout, and your request is not fulfilled.
+        *   Note: While it is technically possible to allow servers to share access to each other’s memory to resolve the 
+                  session mismatch issue, this approach would lead to over-engineering.
+                  Over-engineering involves adding unnecessary complexity to a system, which is generally not a good practice.
+                  Such complexity could introduce additional challenges related to performance, maintenance, and scalability, 
+                  making it an inefficient solution in the long run.
+
+
+    2.  Store the user's state in the database where actual data is stored.
+
+        *   Although storing the user's state in the same database where the actual data is stored is an option, it comes
+            with significant drawbacks.
+        *   Interactions with the database are resource-intensive and time-consuming. Using the database for each request 
+            can result in performance bottlenecks.
+        *   For these reasons, it is considered bad practice to use the database for user state management in this context, 
+            especially when there are alternative methods available that are more efficient.
+
+
+    3.  Use a separate database specifically for managing user states.
+
+        *   Another solution is to use a dedicated database specifically for managing user session states, separate 
+            from the main data storage.
+        *   While this can help isolate session management from the main database, it still requires significant 
+            resources for setup and maintenance. Managing an additional database increases overhead in terms of 
+            storage, querying, and scaling.
+        *   A critical drawback is that this approach introduces a single point of failure. If the session state 
+            database fails or experiences downtime, it would impact all users, leading to system-wide failures in 
+            authentication and session handling.
+        *   In case of a database failure, all active sessions could be invalidated, causing every user to experience 
+            disruptions or be logged out, which would negatively impact user experience.
+
+
+Note:   If we do not maintain a record of the user's state, it becomes impossible to keep track of the user's activity 
+        during their session.
+
+        This means the system won't be able to identify whether the user is authenticated, authorized, or even performing actions legitimately.
+        Without state tracking, monitoring user behavior, securing actions, and maintaining session continuity would be unmanageable.
+
+
+
+=====>  To solve this authentication problem we have JWT (Json web token)    -- see 00-jwt.drawio  <=====
+
+See youtube video for detail, i tried my best to explain here
+
+    1.  A JSON Web Token (JWT) works similarly to session tokens, but with some key differences. JWT doesn't 
+        store the token in a database or server for comparison. Instead, the token is calculated and compared 
+        directly on the server.    
+    
+    2.  Token Generation Process
+
+            *   Token Creation:
+                -   A token is generated on the server containing user information and token metadata.
+
+            *   Structure of a JWT:
+                -   JWTs are composed of three parts separated by periods (.), all encoded using Base64 for network compatibility:
+
+                    >   Header: The header contains metadata about the token itself (This information is Base64-encoded):
+
+                            {
+                                "alg": "HS256",  // Hashing algorithm used for signing
+                                "typ": "JWT"     // Token type
+                            }
+                    
+                    >   Payload: The payload contains information about the user, which the server uses to identify and track the user:
+
+                            {
+                                "_id": "1234567890",    // User ID from the database
+                                "name": "John Doe",     // User's name
+                                "iat": 1516239022,      // Token creation time
+                                "exp": 1516339022       // (Optional, there are many optional) Expiration time
+                            }
+                        For security, tokens often include an expiration time, limiting their usability if compromised. Tokens can also be 
+                        refreshed to increase the time of the user and this nice experience in web apps. 
+                        This payload is also Base64-encoded.
+                    
+                    >   Signature: The signature ensures that the token hasn't been tampered with. It's created using the Base64-encoded 
+                        header and payload, combined with a secret key stored on the backend server (the client doesn't have access to this key). 
+                        The server hashes these components using the SHA-256 algorithm:
+
+                            HMACSHA256(base64UrlEncode(header) + "." + base64UrlEncode(payload), secretKey)
+
+
+            *   JWT Verification Process
+
+                    -   The Base64-encoded header and payload from the received JWT in request-header are extracted.
+                    -   The server recreates the signature using the same hashing algorithm (e.g., HMACSHA256) and secret key.
+                    -   The newly generated signature is compared with the signature in the received JWT.
+                        >   If the signatures match, the token is valid, and the server fulfills the user’s request.
+                        >   If they don’t match, the token may have been tampered with, and the server rejects the request.
+                    -   For further details, visit jwt.io, where you can inspect and decode JWTs.
+
+
+
+=====>  To Use JWT (Josn web token), in node.js  (see auth.service.js)<=====
+
+    -   install library named jsonwebtoken to create and verify our jwt tokens
+        npm i jsonwebtoken.
+    
+    -   since it is business logic, so we will write it inside services.
+
+    -   to create JWT in node.js
+        payload - the object we need to encrypt
+        secret - the secret key we’ll use to create the signature
+        options - other parameters to control the jwt. Like we’ll set an expiry time for this token.
+
+        const secret = process.env.SECRET;
+        const payload = { userId };
+        const options = { expiresIn: "1h" };    //  (1h, 60m, 6 months etc...)
+        const token = jwt.sign(payload, secret, options);
+
+
+=====>      See the PPT of CRIO     <=====
+
+
+   
